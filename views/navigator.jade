@@ -1,0 +1,40 @@
+//- 
+
+html
+  head
+    title!= title
+    link(rel="shortcut icon" type="image/png" href="/core/images/favicon.png?v=2")
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+
+    link(rel="stylesheet", href="/core/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/core/css/bootstrap-theme.min.css")
+    link(rel="stylesheet", href="/core/css/tipsy.css")
+    link(rel="stylesheet", href="/core/css/core.css")
+    link(rel="stylesheet", href="/photos/css/photos.css")
+
+    script(src="/core/js/lib/jquery-2.1.1.min.js")
+    script(src="/core/js/lib/bootstrap.min.js")
+    script(src="/core/js/lib/moment.min.js")
+    script(src="/core/js/lib/keyboard.js")
+    script(src="/core/js/lib/jquery.scrollTo.min.js")
+    script(src="/core/js/lib/jquery.tipsy.js")
+
+    script(src="/core/js/utils-cli.js")
+    script(src="/photos/js/photo-utils-cli.js")
+    script(src="/photos/js/navigator-cli.js")
+
+  body
+    div(id="debug", class="debug")
+    div(id="env",   class="env")
+      != env
+
+    div(class="nav-header")
+    div(class="nav-canvas")
+      div(class="nav-close")
+      div(class="nav-left-icon")
+      div(class="nav-right-icon")
+
+    script.
+      document.userContext = !{JSON.stringify(userContext).replace(/<\//g, "<\\/")}
+    script.
+      document.sideMenu = !{JSON.stringify(sideMenu).replace(/<\//g, "<\\/")}

@@ -1,0 +1,33 @@
+{
+  "name":               "willie-photos",
+  "version":            "1.2.1",
+  "description":        "Willie photos module",
+  "author":             "Alexandre Morin <aggmorin@gmail.com>",
+  "license":            "MIT",
+  "private":            true,
+  "scripts": {
+    "debug-mocha":      "iron-node node_modules/mocha/bin/_mocha"
+  },
+  "main":               "index.js",
+  "repository": {
+    "type":             "git",
+    "url": "https://github.com/mkiki/willie-photos.git"
+  },
+  "dependencies": {
+    "extend":           "~3.0.0",
+    "moment":           "~2.10.6",
+    "cron":             "~1.1.0",
+    "fs-extra":         "~0.26.3",
+    "uuid":             "~2.0.3",
+    "wg-log":         "*",
+    "wg-utils":         "*",
+    "wg-database":      "*",
+    "wg-exif":      "*",
+    "wg-thumbs":      "*",
+    "wg-scanner":       "*",
+    "willie-core":   "*"
+  },
+  "devDependencies": {
+    "mocha":            "~2.3.4"
+  }
+}

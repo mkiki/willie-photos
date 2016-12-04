@@ -1,0 +1,85 @@
+//- 
+
+html
+  head
+    title!= title
+    link(rel="shortcut icon" type="image/png" href="/core/images/favicon.png?v=2")
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+
+    link(rel="stylesheet", href="/core/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/core/css/bootstrap-theme.min.css")
+    link(rel="stylesheet", href="/core/css/tipsy.css")
+    link(rel="stylesheet", href="/core/css/core.css")
+    link(rel="stylesheet", href="/photos/css/photos.css")
+    link(rel="stylesheet", href="/core/css/bootstrap-slider.min.css")
+
+    script(src="/core/js/lib/jquery-2.1.1.min.js")
+    script(src="/core/js/lib/bootstrap.min.js")
+    script(src="/core/js/lib/moment.min.js")
+    script(src="/core/js/lib/keyboard.js")
+    script(src="/core/js/lib/jquery.scrollTo.min.js")
+    script(src="/core/js/lib/jquery.tipsy.js")
+    script(src="/core/js/lib/bootstrap-slider.min.js")
+    
+    script(src="/core/js/utils-cli.js")
+    script(src="/photos/js/photo-utils-cli.js")
+    script(src="/photos/js/linkedHashMap.js")
+    script(src="/photos/js/fingerprints.js")
+    script(src="/photos/js/photos-cli.js")
+
+  body
+    div(id="debug", class="debug")
+    div(id="env",   class="env")
+      != env
+
+    div(class="header")
+      input(type="text", name="name", class="album-name", placeholder='Album')
+      div(class="album-subtitle")
+
+    div(class="inner")
+      div(id="menu", class="menu")
+        div(id="menu-hamburger")
+        div(id="menu-commands")
+        div(id="menu-filters")
+          | Filter by year
+          div(class="filter-next filter-years")
+            input(type="text", class="filter-years-slider")
+          div(class="filter-next")
+            input(id="filterByHidden" type="checkbox")
+            | Show hidden images
+          button(class="filter-refresh") Refresh
+
+      div(class="canvap")
+        div(id="canvas", class="canvas")
+        div(class="pad")
+
+      div(id="infos",  class="infos")
+        div(class="infos-close")
+        div(class="infos-inner")
+          div(class="infos-for-selection")
+            div(class="infos-section")
+            div(class="infos-section-details")
+              div(class="infos-section")
+                div.infos-section-attributes
+              hr
+            div(class="infos-section")
+              div(id="map" class="map")
+            div(class="infos-section")
+              | Tags
+              p
+              div(class="help")
+                | To tag a picture, use both keys 't' for tag and the tag key (ex: 's' for Selfies) together
+              p
+              div.infos-section-tags
+            hr
+
+    div(id="copyright",   class="copyright")
+      != copyright
+
+
+    script(src="https://maps.googleapis.com/maps/api/js?key=" + mapsAPIKey + "&callback=initMap")
+
+    script.
+      document.userContext = !{JSON.stringify(userContext).replace(/<\//g, "<\\/")}
+    script.
+      document.sideMenu = !{JSON.stringify(sideMenu).replace(/<\//g, "<\\/")}
